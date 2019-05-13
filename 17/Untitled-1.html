@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // var obj = {x:1,y:2};
+    // var obj1 = Object.create(obj);
+    // var obj2 = Object.create(obj);
+    // obj1.__proto__.x=5;
+    // console.log(obj2.x);
+
+    // function Person(name){
+    //     this.name=name;
+    // }
+    // Person.prototype.age=22;
+    // Person.prototype.showName=function(){
+    //     console.log(this.name);
+    // }
+    // function Student(id){
+    //     this.id=id;console.log(s1.name,s1.age,s1.id);
+    // }
+    // Student.prototype=new Person('Mike');
+    // var s1=new Student(2017001);
+    // var s2=new Student(2017002);
+    // console.log(s1.name,s1.age,s1.id);
+    // console.log(s2.name,s2.age,s2.id);
+    // s1.__proto__.name='Jack';
+    // console.log(s2.name);
+    // s2.__proto__.__proto__.age=99;
+    // console.log(s2.age);
+
+        function Person(name,age){
+            this.name=name;
+            this.age=age;
+        }
+        Person.prototype.showName=function(){
+            console.log(this.name);
+        }
+        function Student(name,age,id){
+            Person.call(this,name,age);
+            this.id=id;
+        }
+        Student.prototype.__proto__=Person.prototype;
+        var s1 = new Student('XXX',22,2017001);
+        var s2 = new Student("WWW",23,2017002);
+        console.log(s1);
+        s1.__proto__.showName();//undefined
+        s1.showName();//XXX
+
+
+        function BaseClass(){
+
+        }
+        BaseClass.fn1=function(){
+            console.log('静态');
+        }
+        BaseClass.prototype.fn2=function(){
+            console.log('原型');
+        }
+        BaseClass.fn1();
+        var base = new BaseClass();
+        base.fn2();
+        /*
+            Object.create();
+            Object.defineProperty()
+        */
+
+
+        function foo(){
+
+        }
+        foo.prototype.constructor ==foo;
+        var Foo = new foo();
+        Foo.constructor == foo;
+
+        fpp.prototype={};
+
+
+
+
+        (function(w,d){
+            function InoutIdentify(inptuId){
+                this._init(inptuId);
+            }
+
+            inputIdentify.prototype._init=function(){
+                var inputObject = document.getElementById(inptuId);
+                this.inputObject=inputObject;
+            }
+
+            inputIdentify.prototype._effect=function(){
+                this.inputObject.onblur=function(){
+                    console.log('文本框失去焦点');
+                }
+                this.inputObject.onfocus=function(){
+                    console.log("文本框获得焦点");
+                }
+            }
+        })(window,document)
+</script>
+</html>

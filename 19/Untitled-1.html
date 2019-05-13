@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*new Date(年，月，日，时，分，秒，毫秒)*/
+    var date1 = new Date("2019","05","05");
+    console.log(date1);
+
+    /*new Date（时间格式字符串）*/
+    var date2 = new Date("2019-05-05");
+    console.log(date2);
+
+    var millionSeconds = Date.now();
+    var date3 = new Date(millionSeconds);
+    console.log(date3);
+
+    var mm2 = Date.parse("2019-05-05");
+    var next = mm2 +86400000;
+    console.log(mm2);
+</script>
+</html>

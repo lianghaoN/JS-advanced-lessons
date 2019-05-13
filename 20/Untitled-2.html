@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        字符分类：
+        \d:匹配阿拉伯数字 0~9
+        \D:匹配任意一个不是阿拉伯数字的字符,等价于[^0-9]
+        \w:所有的字母数字下划线
+        \W:不是字母不是数字不是下划线
+        \s:空格
+        ^m:除了m字符外
+    */
+    var reg1 = /ab/gi;
+    var str1 = "abcdefg";
+    str1.replace(reg1,"x");
+
+    var reg2 = /a\D/gi;
+    var str2 = "alaba2ac";
+    str2.replace(reg2,"x");
+
+    var reg3 = /a\w/gi;
+    var str3 ="a1aba2aca_";
+    str3.replace(reg3,"x");
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        数量词
+        m? 表示m出现0次或1次
+        n+ 表示n出现1次或多次
+        *m:表示匹配前面的字符0次或多次
+        p(m,n)：表示p至少出现m次，至多出现n次
+        a(n):表示匹配a字符n次
+    */
+    var reg1 = /a?bcd/gi;
+    var str1 = "abcd bcd aabcd";
+    str1.replace(reg1,"x");
+
+    var reg2 = /a+bcd/gi;
+    var str2 = "abcd bcd aabcd aaabcd";
+    str2.replace(reg2,"x");
+
+    /*
+        /^[A-Za-z0-9]+$/ (密码)
+    */
+</script>
+</html>

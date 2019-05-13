@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var num1 = 20;
+    num1.toFixed(1);
+    //toFixed(n)保留n位数的小数,并转换为字符串，对超出的数值四舍五入
+
+    var num2 = 12345.789;
+    num2.toPrecision(1);
+    //toPrecision(n) 方法可在对象的值超出n位数时将其转换为指数计数法,对超出的数值四舍五入
+
+    var str1 = 'acbde';
+    str1.charAt(2);
+
+    String.fromCharCode(97,98,99);
+    //返回指定的 Unicode 值，然后返回一个字符串
+
+    var str = 'abcdefg';
+    str.charCodeAt(0);
+    //返回指定位置的Unicode码, 0 - 65535 之间的整数
+
+    var str2 = 'ab cdefghi';
+    str2.slice(0,3)
+    //如果结束位置为负数，则实际结束位置为str.length + 截取结束参数
+    str2.substr(0,3);
+    //substr(截取起始位置，截取长度)，截取长度可以省略，表示从起始位置到结束
+    str2.substring(0,3);
+    // substring提取字符串中介于两个指定下标之间的字符,两个参数必须是非负的整数！
+    //substring如果起始位置的数值比结束位置的数值大，则它们互换位置
+    //substring如果超出0-str.length的范围，会被截断
+    str2.split(c);
+    //split(分割符，限定生成数组元素个数)
+
+    var str3 = "    a   b   cd";
+    str3.trim();
+    //去除起始和结束位置的空格
+
+    str3.concat(str2);
+    //str3 + str2,()可有多个字符串
+
+    str3.toLowerCase();//转换为小写
+    str3.toUpperCase();//转换为大写
+
+    str3.indexOf(searchvalue,fromindex);
+    //indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置
+    //searchvalue必需,规定需检索的字符串值
+    //fromindex可选的整数参数,规定在字符串中开始检索的位置。它的合法取值是 0 到 stringObject.length - 1,如省略该参数，则将从字符串的首字符开始检索
+    //如果查找不到，返回值是-1
+
+    str3.lastIndexOf(searchvalue,fromindex);
+    //lastIndexOf() 方法可返回一个指定的字符串值最后出现的位置，在一个字符串中的指定位置从后向前搜索
+    //如果要检索的字符串值没有出现，则该方法返回 -1。
+
+    str3.localeCompare(str2);
+    //用本地特定的顺序来比较两个字符串
+    //如果str3小于str2，则返回小于0的数；如果str3大于str2，则返回大于0的数；如果相等返回0
+    
+</script>
+</html>

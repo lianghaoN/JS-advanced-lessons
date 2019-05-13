@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var reg1 = /\da/gi;
+    var reg2 = new RegExp(/\da/,"gi");
+    var reg3 = new RegExp('\da','gi');
+
+
+
+    /*
+        reg.exec(str)
+        如果可以匹配的，返回的是数组
+        如果不能匹配，返回的是null
+            返回的数组结构
+            [整个正则匹配的内容，分组匹配到的内容]
+    */
+    var reg4 = /(ss\d)a/gi;
+    var str1 = "ss1abcdefg";
+    reg4.exec(str1);//["ss1a",""ss1]
+
+    var reg5=/(\dss)a/1/gi;
+    var reg6 = /(\dss)a()\dss/gi;
+    var str2 = "1ssa1ssfdfdfdf";
+    str2.replace(reg5,"x");
+
+    var reg7 = /(ab){3}/gi;
+    var str3 = "abababcaef";
+    str3.replace(reg7,"x");
+
+    /(.*)\.(rar|zip|7zip|tgz)$/
+    /*
+        (.*) .表示任意一个字符，*表示出现0次或多次
+        表示文件名字字符出现0次或多次
+
+        \. 对.做转义处理，匹配 .
+
+        (rar|zip|7zip|tgz) 任意取其中一个
+
+        %以前面的分组内容结尾
+    */
+</script>
+</html>

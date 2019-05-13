@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        arr.forEach(callback,thisArg);
+        callback是针对数组的每个数组元素
+            value表示数组元素的值
+            index表示数组元素的索引值
+            arr表示被操作的数组
+        thisArg回调函数内部的this指向
+    */
+    var arr1=["a","b","c"];
+    var obj1 ={x:"d"};
+    arr1.forEach(function(value,index,arr){
+        console.log(value,index,arr);
+        this[value]=value;
+    },obj1);
+    console.log(obj1);
+
+    /*
+        var arr = arr.every(callback);
+        测试数组的元素执行的结果是否全部通过
+        若有不满足的，立即返回false，不再后续迭代
+    */
+    var arr2=[10,20,30,40];
+    var result = arr2.every(function(value){
+        return value > 5;
+    });
+    console.log(result);
+
+    /*
+        只要某些数组元素满足条件，返回值为true
+        如果全部不满足，返回false
+        若有满足的，立即返回true，不再后续迭代
+    */
+    var result1 = arr2.some(function(value){
+        return value > 30;
+    })
+    console.log(result1);
+
+    //返回一个新的数组
+    //不会改变原始数组
+    //不会对空数组进行检测
+    var result2 = arr2.map(function(value){
+        return value*2;
+    })
+    console.log(result2);
+
+    /*
+        创建一个新的数组，新数组中的元素是通过检查指定数组中符合条件的所有元素
+        不会对空数组进行检测
+        不会改变原始数组
+    */
+    var result3 = arr2.filter(function(value){
+        return value>20;
+    })
+    console.log(result3);
+
+
+    Array.prototype.filterspace=function(){
+        var arr1=this;
+        var result= arr1.map(function(value){
+            return value.trim();
+        });
+        return result;
+    }
+    var arr3=["abcd","kkf dfd"];
+    arr3.filterspace();
+    console.log(arr3);
+</script>
+</html>

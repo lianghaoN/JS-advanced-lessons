@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    // var num1 = 20;
+    // var num2 = num1;
+    // num1 = 10;
+    // console.log(num2);
+    // //num2 = 20
+
+    // var obj1 = {"username":"zhangsan"};
+    // var obj2 = obj1;
+    // obj2.username = "lisi";
+    // console.log(obj1);
+    // //obj1.username = lisi
+
+    // var arr1 = [1,2,3,4,5];
+    // var arr2 = arr1;
+    // arr2[0] = 6;
+    // console.log(arr1);
+
+    // var obj3 = {"username":"zhangsan"};
+    // var obj4 = {};
+    // var username="";
+    // for(var i in obj3){
+    //     username = obj3[i];
+    // }
+    // obj4.username=username;
+
+    // var obj5 ={};
+    // var obj6 = {};
+    // console.log(obj5 == obj6);
+    // //引用类型判断的是指向的内存空间是否相同
+
+    // var a =6; 
+    // function fn1(x){
+    //     x=5;
+    // }
+    // fn1(a);
+    // console.log(a);
+
+    // var obj7 ={"username":"zhangsan"};
+    // function fn1(x){
+    //     x.username="lisi";
+    // }
+    // fn1(obj7);
+    // console.log(obj7.username);
+
+    var x = 20;
+    console.log(isNaN(x));
+    var y = "x";
+    console.log(isNaN(y));
+
+    //slice截取字符串起始位置，截取字符串的结束位置
+    //slice负数可以从反方向计算索引
+    var str = "ab_cd_ef";
+    str.slice(0,3);
+    //str = "ab_"
+    str.slice(0,-1);
+    //str="ab_cd_e"
+    //split("分隔符",想要得到的元素个数)
+    str.split("_");//返回的是数组
+    //["ab","cd","ef"]
+</script>
+</html>

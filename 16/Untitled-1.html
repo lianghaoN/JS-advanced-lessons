@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Person(username,age){
+        this.username=username;
+        this.age=age;
+        this.sayHello = function(){
+            console.log('hello world');
+        }
+    }
+    Person.prototype.sayHello = function(){
+        console.log('hello world');
+    }
+    var person1 = new Person("李航",20);
+    var person2 = new Person('李四',31);
+    console.log(person1.__proto__ == Person.prototype);//true
+    console.log(person1,person2);
+    person1.sayHello();
+    person2.sayHello();
+
+    console.log(Person.prototype.constructor == Person);//true
+    console.log(Object.prototype.constructor == Object);//true
+
+    var car = {
+        height :150,
+        width:200,
+        weight:2000
+    };
+
+    var smallCar = Object.create(car);
+    smallCar.color = 'red';
+    smallCar.searNum = 4;
+    console.log(smallCar.height,smallCar.width,smallCar.weight);
+    console.log(smallCar.color,smallCar.searNum);
+
+    //闭包
+    /*
+        1.可以访问函数内部的局部变量
+        2.可以让变量保持在内存中
+    */
+   function fn1(){
+       var x=1;
+       function fn2(){
+           return ++x;
+       }
+       return fn2;
+   }
+   var result = fn1();
+   console.log(result());
+   console.log(result());
+   console.log(result);
+
+   var obj = {x:1};
+   for(var i in obj){
+       console.log(obj[i]);
+   };
+
+   Object.defineProperty(obj,"y",{
+       value:2,
+       writable : true,
+       enumerable:true,
+       configurable:true
+   });
+
+//    Object.getOwnPropertyDescriptor();
+//    Object.create();
+//    Object.defineProperties();
+//    Object.defineProperty();
+//    Object.assign();
+
+   var x=1;
+   var y=2;
+   alert(window.x);
+//    this取决与所在函数的调用主体,既谁在调用，就指向谁
+   function thisText(){
+       console.log(this);
+   }
+   thisText();//window
+
+//    function thisText(){
+//        "use strict";
+//        console.log(this);
+//    }
+//    thisText();
+// 严格模式下是undefined,可以通过this来判断是否为严格模式
+
+    var point = {
+        x:0,
+        y:0,
+        moveTo:function(x,y){
+            this.x=x;
+            this.y=y;
+        }
+    };
+    point.moveTo(1,1);//this指向的是point
+    console.log(point);//x:1,y:1
+    // 函数或者方法的内部指向取决与该函数的调用主体
+
+    function Point(x,y){
+        this.x=x;
+        this.y=y;
+        this.moveTo=function(x,y){
+            this.x=x;
+            this.y=y;
+        }
+    }
+    var p = new Point(2,3);
+    console.log(p.x);//2
+    p.moveTo(4,5);
+    console.log(p.x);//4
+    //函数内部的this指向取决与函数调用的主体是谁
+
+    var objA ={name:'AA',x:1};
+    var objB ={name:'BB',x:2};
+    function text(){
+        console.log(this.name,this,x);
+    }
+    objA.fun=text;
+    objA.fun();//AA 1
+    objA.fnu.call(objB);//BB 2
+    objA.fnu.call(objB,"CC");//CC 2
+    /*
+        函数也是对象，函数对象
+        函数对象的构造函数 Function
+        函数对象.__proto__==Function.prototype
+        方法.call(函数调用主体对象，arg1，arg2)
+    */
+
+    var animal ={weight:"200KG",name:"zbc"};
+    var dog = {height:"30cm",name:"ziyu"};
+    animal.breath = function(){
+        console.log(this.name+"can breath");
+    }
+    animal.breath.apply(dog,["jack"]);
+
+    var point1 ={
+        x:0,
+        y:0,
+        moveTo1:function(x,y){
+            //多层嵌套时，内部函数this指向window
+            var that = this;//转存this
+            function moveToX(x){
+                that.x=x;
+            }
+            moveToX(x);
+        }
+    }
+    point1.moveTo1(10,10);
+    console.log(point1);//x:10,y:0
+
+    var point2={
+        x:1,
+        y:2,
+        moveTo2:function(x,y){
+            function moveToXX(x){
+                this.x=x;
+            }
+            function moveToY(y){
+                this.y=y;
+            }
+            /*
+                切换函数或方法的调用主体
+                并且将方法执行
+            */
+            moveToXX.call(this,x);
+            moveToY.call(this,y);
+        }
+    }
+    point2.moveTo2(10,10);
+    console.log(point2);//10
+
+    var point3={
+        x:0,
+        y:0,
+        moveTo3:function(x,y){
+            function moveToXXX(x){
+                this.x=x;
+            }
+            function moveToYYY(y){
+                this.y=y;
+            }
+            //形成一个新的函数
+            var fn1 = moveToXXX.bind(point3,x);//改变this指向
+            fn1();
+            console.log(fn1);
+        }
+    }
+    point3.moveTo3();
+    console.log(point3);
+</script>
+</html>

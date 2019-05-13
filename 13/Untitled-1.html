@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /* 对象instanceof
+        1.判断对象是否可以使用构造函数实例化得到
+        2.判断在对象的原型链上能否找到构造函数的原型
+
+        对象.__proto__ == 构造函数.prototype
+    */
+
+    Object instanceof Function;//true
+    Object.__proto__ == Function.prototype;
+    Object instanceof Object;//true
+    Number instanceof Function;//true
+    Number instanceof Object;//true
+    Function instanceof Function;//true
+    Function instanceof Object;//true
+    Array instanceof Function;//true
+    Array instanceof Object;//true
+    Math instanceof Function;//false
+    Math instanceof Object;//true
+    JSON instanceof Function;//false
+    JSON instanceof Object;//true
+
+    var o = {
+        _x:1,
+        get x(){
+            return this._x;
+        },
+        set x(val){
+            if(0<x && x<150){
+                this._x = val;
+            }else{
+                console.log('不符合格式要求')
+            }
+        }
+    }
+
+    o._x =200;
+    console.log(o._x,o.x);
+
+    var o = {
+        "username":"zhangsan",
+        "age":20
+    }
+
+    var obj={
+        num:10,
+        str:'hello',
+        show:function(){
+            console.log(this.str);
+        }
+    }
+    var subObject = Object.create(obj);
+    //subObject.__proto__==obj
+    console.log(subObject.num);
+
+    var obj = {x:1};
+    var z = 'age';
+    obj[z]=20;
+    console.log(obj);
+    
+    for(var i in obj){
+        console.log(i,obj[i]);
+    }
+
+    delete obj .age;
+    console.log(obj);
+</script>
+</html>

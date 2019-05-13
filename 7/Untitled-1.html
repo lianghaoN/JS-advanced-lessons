@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+ 
+</body>
+<script>
+    max (2,3);
+    function max(a,b){
+        return a>b?a:b;
+    }
+
+    var min = function(x,y){
+        return x>y?y:x;
+    }
+    min(2,3);
+    //不能在min的声明前进行调用
+
+    //Function(arg1,arg2,agr3......,函数体);
+    //执行效率相对较低，但是更加灵活
+    var fn1 = new Function('a','b','return a>b?a:b;');
+    fn1(2,3);
+
+    'use strick';
+    function text(){
+        console.log(this);
+    }
+    text();
+
+    var obj = {
+        x:0,
+        text:function(){
+            console.log(this.x);
+        }
+    }
+    obj.text();//0
+    //对象内部方法调用，this指向调用该方法的对象
+
+    var objA = {"objName":"AAA"};
+    var objB = {"objName":"BBB"};
+    objA.text = function(){
+        console.log(this.objName);
+    }
+    objA.text();///AAA
+    objA.text.call(objB);///BBB
+    //方法.call(当前对象)
+    //将方法的调用执行从原有的对象切换到当前对象
+
+    function Person(username){
+        this.username = username;
+        // this.sayHi = function(){
+        //     console.log(this.username);
+        // }
+    }
+
+    Person.prototype.sayHi = function(){
+        console.log(this.username);
+    }
+
+    var person = new Person("zhangsan");
+    var person1 = new Person("lisi");
+    console.log(person,person1);
+
+    // - 实参数量大于形参的情况（通过函数对象属性arguments获得所有实参、类数组对象）
+    // - 实参数量小于形参的情况（少的参数值为undefined、可使用| |来给出默认值）
+    function sum (s,y,z){
+        z=z || 3;
+        return x+y+z;
+    }
+
+    function text(){
+        var s = "";
+        for(var i=0;i<arguments.length;i++){
+            s+=arguments(i);
+        }
+        return s;
+    }
+    text("hello","world");
+
+    var a =1;
+    function text(x){
+        x=2;
+        console.log(x,a);
+    }
+    function text1(){
+        var y=2;
+        text(a);
+    }
+    text1();//2,1
+
+    var obj = {x:0};
+    function bar(obj1){
+        obj1.x=2;
+        console.log(obj,obj1);
+    }
+    bar(obj);
+
+    //定义一个函数，传入一个参数，完成对参数的复制处理,生成一个新的变量
+    //类型 string boolean number array
+    function copy(x){
+        var y;
+        switch(true){
+            case (x instanceof String):
+            case (x instanceof Number):
+            case (x instanceof Boolean):
+                y=x;
+                break;
+            case (x instanceof Array):
+                y=[];
+                for(var i=0;i<x.length;i++){
+                    y[i]=x[i]
+                }
+                break;
+        }
+        return y;
+    }
+    copy(true);
+</script>
+</html>

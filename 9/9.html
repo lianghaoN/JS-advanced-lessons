@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    if(true){
+        var a=1;
+    }
+    console.log(a);
+
+    if(false){
+        var b=2;
+    }
+    console.log(b);
+
+    function fn1(){
+        fn2();
+        function fn2(){
+            console.log('hello world');
+        }
+    }
+    fn1();
+
+    var a=1;
+    var b=2;
+    function fn1(){
+        var b =3;
+        var d =4;
+        console.log(b);
+        function fn2(){
+            b=5;
+            var e =6;
+        }
+        fn2();
+    }
+    fn1();
+    console.log(b);
+
+    //作用域的静态性，只要完成函数的定义，那变量的作用域就是确定的
+    //和函数在哪里调用没有关系
+    var username = "jack";
+    function foo(){
+        console.log(username);
+    }
+    function bar(){
+        var username = 'billi';
+        foo();
+    }
+    bar();
+
+    console.log(x);
+    if(true){
+        var x=1;
+    }
+
+    var useId =2;
+    document.onclick = function(){
+        console.log(useId);
+    };
+    //很长一段代码
+    if(true){
+        var useId =20;
+    }
+
+    //解决方法
+    (function(){
+        if(true){
+            var useId =20;
+        }
+    })()
+
+    // for (var i =0;i<3;i++){
+    //     setInterval(function(){
+    //         console.log(new Date(),i);
+    //     },1*1000)
+    // }
+
+    if(true){
+        let a =1;
+    }
+    console.log(a);
+
+    //代码执行的上下文，指的是代码执行的时候，相关的上下文环境
+    //函数的调用栈，this的指向，作用域及作用域中变量
+
+    var a =1;
+    var n =2;
+    function fn3(){
+        var c = 3;
+        var d = 4;
+        function fn4(){
+            var e =5;
+            var f =6;
+        }
+        fn4();
+    }
+    fn3();
+</script>
+</html>

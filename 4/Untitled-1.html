@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // for (var i=0;i<3;i++){
+    // }
+    // console.log(i);
+
+    // //全局所有代码使用严格模式
+    // 'use strict'
+
+    // //针对函数运用严格模式
+    // function fn1(){
+    //     'use strick'
+    // }
+
+    // //非严格模式下，不使用var声明变量，则该变量会自动转换为全局变量
+    // function fn2(){
+    //     username = "zhangsan";
+    // }
+    // fn2();
+    // console.log(username);
+
+    // //普通模式下this指向Windows，严格模式下this为undefined
+    // function fn3(){
+    //     'use strick'
+    //     console.log(this);
+    // }
+    // fn3();
+
+    // function isStrictMode(){
+    //     'use strick'
+    //     return this === undefined?true:false;
+    // }
+    // if(isStrictMode()){
+    //     console.log('严格模式');
+    // }else{
+    //     console.log('非严格模式')
+    // }
+
+    // // case在比较时使用的是全等操作符比较,因此不会发生隐式类型转换
+    // var i = '1';
+    // switch(i){
+    //     case 1:
+    //         console.log("case 1");
+    //         break;
+    //     default:
+    //         console.log("default")
+    // }
+
+    // var index = 1;
+    // switch(index){
+    //     case 1:
+    //     case 2:
+    //     case 3:
+    //     case 4:
+    //         console.log('工作日');
+    //         // break;
+    //     default:
+    //         console.log('asdadsa');
+    //     case 5:
+    //         console.log('休息日');
+    //         break;
+    // }
+
+    var obj ={'username':'zhangsan','age':20};
+    obj.__proto__.sex = 'male';
+    for (var i in obj){
+        console.log(i);//变量名
+        console.log(obj[i]);//值
+    }
+
+    //不建议遍历数组
+    var arr1 = [1,2,3];
+    for(var j in arr1){
+        console.log(j);
+    }
+</script>
+</html>

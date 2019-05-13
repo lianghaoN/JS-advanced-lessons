@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        /正则表达式文本/标识符
+    */
+    /*
+        [xyz]从括号中的字符中选任意一个
+        i标识符：是否忽略大写
+        g标识符：是否全局检索
+    */
+    var reg1 =/[bcf]at/gi;
+    var reg2 = new RegExp(/[bcf]at/,"gi");
+    var rg3 = new RegExp("[bcf]at","gi");
+    var str1 ="bat car fat Fat difijfi";
+    str1.match(reg1);// (3) ["bat", "fat", "Fat"]
+    console.log(reg2);// /[bcf]at/gi
+    console.log(rg3);// /[bcf]at/gi
+</script>
+</html>
