@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        promise将异步的操作写成同步执行的方式
+        resolve是异步操作成功时候的调用
+        reject是异步操作失败时候的调用
+    */
+    new Promise(function(resolve,reject)  {
+        setTimeout(function() {
+            console.log("world");
+            resolve();
+        }, 3000);
+    }).then(function() {
+        //对应的resolve
+        console.log("hello");
+        console.log(val);
+    },function(){
+        //对应的reject
+    }).catch(function(e) {
+        //捕获异常
+        console.log(e);
+    }).finally(function() {
+        //无论如何都会执行
+        console.log("执行结束");
+    })
+</script>
+</html>

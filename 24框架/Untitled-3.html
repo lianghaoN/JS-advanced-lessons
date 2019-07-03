@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            background: #ddd;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>层1</div>
+    <div>层2</div>
+    <div>层3</div>    
+</body>
+<script src="jquery-3.4.1.js"></script>
+<script>
+    /*
+        当鼠标移动到某层时,该层颜色背景色为:蓝色
+        当鼠标移出时,变为浅灰色
+        当单机某层，该层背景颜色为:红色；
+    */
+    $("div").mouseover(function(){
+        $(this).css("background","blue");
+    })
+    $("div").mouseout(function(){
+        $(this).css('background',"gray");
+    })
+    $('div').click(function(){
+        $(this).css('background','red');
+    })
+</script>
+</html>

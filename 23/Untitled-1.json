@@ -1,0 +1,14 @@
+{
+    "username":"zhangsan",
+    "age":20,
+    "address":[
+        {
+            "addName":"石家庄",
+            "addCode":"123123132"
+        },
+        {
+            "addName":"邯郸",
+            "addCode":"1111222"
+        }
+    ]
+}

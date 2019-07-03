@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <img src="zhanqiao.jpg" id="img1">
+    <button id="attrbtn">attr</button>
+</body>
+<script src="jquery-3.4.1.js"></script>
+<script>
+    /*
+        attr("属性名","属性值") 设置特定元素的属性
+        attr("属性名"); 获取特定属性值
+    */
+    $("#attrbtn").click(function(){
+        $("#img1").attr("src","2.jpg");
+    })
+
+    /*
+        dom操作
+        $("html结构")
+
+        append() appendTo() before() insertBefore() click() blur()
+    */
+</script>
+</html>

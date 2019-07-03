@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    #div1{
+        background: red;
+        height: 200px;
+        width: 200px;
+        margin: 0 auto;
+    }
+    #div2{
+        height: 100px;
+        width: 100px;
+        background: blue;
+        margin: 0 auto;
+    }
+    #div3{
+        height: 50px;
+        width: 50px;
+        background: green;
+        margin: 0 auto;
+    }
+</style>
+<body>
+    <div id="div1">
+        <div id="div2">
+            <div id="div3"></div>
+        </div>
+    </div>
+</body>
+<script>
+    var div1 =document.getElementById('div1');
+    var div2 =document.getElementById('div2');
+    var div3 =document.getElementById('div3');
+    /*
+        事件对象：当事件发生时，收集的数据信息构成一个对象
+        默认情况下事件冒泡是由内往外的
+        addEventListener(‘事件名’，‘函数’，‘是否捕获事件流’)
+    */
+    div1.addEventListener("click",function(){
+        console.log('div1点击了');
+    });
+    div2.addEventListener("click",function(){
+        console.log('div2点击了');
+    });
+    div3.addEventListener("click",function(){
+        console.log('div3点击了');
+    });
+</script>
+</html>
